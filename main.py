@@ -1,90 +1,123 @@
-pv = 6
-advance = 0
-is_over = False
-is_a_win = False
+#Bon fini les conneries on est pas sur git pour faire des truc moisis et avoir des pseudos claqués, en avant le vrai code XD
 
-item = []
-utiliser = None
-possede = False
-entree = None
-e = None
-menu = None
-is_menu = True
+"""Vous êtes un détective de police, vous avez la réputation d'employer des méthodes douteuses pour parvenir à boucler vos affaires .
+Le Commissaire vous a placé sur une enquête très intriguante impliquant un tueur en série au mode opératoire surprenant"""
 
 def clean():
-    print("","","","","","","","","","","","","","","","","", sep="\n")
+    print("\n"*1000)
 
-def menu(is_menu):
-    while is_menu == True:
-        clean()
-        print('''Covid Fighter : A Jean Marie Bigard text odyssee''','''''','''1)parameters''','''2)enter game''')
-        menu = int(input('Choose an option'))
-        if menu == 1:
-            input('''Only Language available : "Langage grossier de Bigard"''')
-        elif menu == 2:
-            print('''Commencing adventure...''')
-            is_menu = False
+def choix():
+    print("""taper aide pour consulter les actions disponibles, taper indice pour avancer dans le scénario""")
+    choix = input("Que faites vous ?")
+    return choix
+
+#
+quitter = False
+#
+Listevide = ["Rien"]
+item = []
+#
+est_I = True
+choixI = None
+
+voi_I = ["regarder","demander","prendre","utiliser","marcher","TOPOLOGIE","QUITTER (l'enquete)"]
+voi_Ireg = ["placeholder"]
+#voi_Idem = ["RIEN"] ==> liste vide
+voi_Ipre = ["donuts","clé_voiture","cigarette","briquet"]
+
+voi_Imar =["parking intérieur","parking extérieur","commissariat accueil","commissariat service"]
+lieu = "voi_I"
+
+
+
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+nom =input("Choisissez un nom de détective :")
+prenom=input("Choisissez votre prénom :")
+
+if nom == "":
+    nom = "Dian"
+if prenom == "":
+    prenom = "James"
+
+#introduction jour = 26 août 2012, ville de Sagrasne
+clean()
+print('''26 août 2012, 8h00''','''ville de Sagrasne :''','''Commissariat de Police Centre Nord''','''''',sep="\n")
+input('press enter')
+
+clean()
+print("""Vous arrivez en voiture devant le Commissariat centre nord,""",""" l'endroit où l'élite de la brigade des stups de cette ville perdue de campagne possède son QG.""","""Alors que vous êtes arrêtés sur le parking vous contemplez les Donuts achetés tous frais du jour,""","""vous vous demandez si cett achat vallait bien les 20 Euros dépensés pour les acquérirs""","""C'est difficile de réparer son image quand tout le monde pense que vous êtes un homme malhonnète,""","""surtout dans la police, les gens sont de nature méfiante et très enclins à écouter les bruits qui courrent.""","""En repensant cela, vous vous dîtes que ce n'est pas plus mal que les gens soient méfiant :""","""on n'a pas besoin de freins, ni de boulets administratifs, surtout dans un milieu où l'officier doit montrer l'exemple""",sep="\n")
+
+
+
+while est_I == True:
+
+    if lieu == "voi_I":
+        print("""La voiture tourne encore. vous êtes garés dans le parking sécurisé.""")
+        choixI = choix()
+        if choixI == "aide":
+            print("""actions disponibles :""",voi_I)
+
+
+        if choixI == "indice":
+            print("""Vous devriez aller au commissariat, le boulot a déjà commencé.""")
     
+        if choixI == "topologie":
+            print("ce lieu possède les pièces suivantes :", voi_Imar )
+        
+        if choixI == "quitter":
+            break
 
 
 
-menu(True)
 
 
 
-while is_over != True and entree != "quitter":
-    
-    clean()
-
-    if advance == 0:
-        print('Tu es Jean Marie Bigard, un humoriste reconnu et une personnalité publique importante.',"Mais aujourd'hui, l'heure est grave, l'heure n'est pas à la détente ou à la franche rigolade car je cite :'Nous sommes en guerre !'",'tels étaient les mots prononcés par le président de la République','''En entendant ces mots prononcés par un homme détesté de tous et pourri jusqu'à la moile''','Votre décision est prise, il vous faut intervenir', sep="\n")
-        advance += 1
-
-    if advance == 1:
-        print('','''indice : tapez aide''',sep="\n")
-        entree = input('''QUE SOUHAITEZ-VOUS FAIRE ?''')
-        if entree == "prendre voiture":
-            print("Vous sortez de votre appartement pour prendre votre voiture")
-            advance += 1
-        elif entree == "aide":
-            input('''il n'y a qu'une seule chose à faire quand on entend la connerie humaine à l'état pure : aller à la maison de la radio''')
-            advance = 0
-
-            
-        else:
-            print('''avancée''', advance)
-
-    
-    if advance == 2:
-        print('''Vous êtes désormais devant votre voiture, juste à la sortie de votre appartement''')
-        entree = input("QUE SOUHAITEZ-VOUS FAIRE ?")
-        if entree == "utiliser":
-            print('liste des items',item)
-            utiliser = input("Quel item utiliser ?")
-            if utiliser == "clé_bagnole":
-                for i in range(len(item)):
-                    if utiliser == item[i]:
-                        possede = True
-
-                if possede == True:
-                    print('''Vous ouvrez la caisse avec la clé''')
-                    advance += 1
-                else:
-                    print('''Tu nas pas pris tes clés''')
-            elif utiliser == "Le_doigt":
-                print('''Tu mets les doigts dans la serrure et la voiture s'ouvre ''')
-                advance += 1
-            else:
-                print('''L'objet''', utiliser, '''possède une quantité de qualités incroyables mais pascelle d'ouvrir ta voiture.''')
 
 
 
-    if advance == 3:
-        is_over = True
-        print('''Vous êtes en route pour la Maison de la Radio afin de répondre à une connasse de journaliste''','''Dans un sens, c'est pas de sa faute : c'est une femme''')
 
 
 
-if entree == 'quitter':
-    clean()
-    print('Vous avez abandonné le peuple Françis à son sort .','''Le peuple a besoin de vous pour résister à l'oppression''')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+exit(0)

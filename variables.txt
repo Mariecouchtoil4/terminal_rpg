@@ -1,0 +1,16 @@
+choix
+nom
+prenom
+
+
+
+quitter = False
+item = []
+
+voi_I = ["regarder","demander","prendre","utiliser","marcher","TOPOLOGIE","QUITTER (l'enquete)"]
+voi_Ireg = []
+voi_Idem = []
+voi_Ipre = ["donuts","clé_voiture","cigarette","briquet"]
+
+voi_Imar = ["parking intérieur","parking extérieur","commissariat accueil","commissariat service"]
+Lieu = voi_I
