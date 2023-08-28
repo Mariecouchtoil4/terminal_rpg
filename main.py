@@ -9,7 +9,7 @@ def clean():
 def choix():
     print("""taper aide pour consulter les actions disponibles, taper indice pour avancer dans le scénario""")
     choix = input("Que faites vous ?")
-    return choix
+    return choix.lower()
 
 #
 quitter = False
