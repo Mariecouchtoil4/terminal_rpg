@@ -16,21 +16,30 @@ quitter = False
 #
 Listevide = ["Rien"]
 item = []
+prendre = None
+loop = 0
 #
 est_I = True
 choixI = None
 
 voi_I = ["regarder","demander","prendre","utiliser","marcher","TOPOLOGIE","QUITTER (l'enquete)"]
 voi_Ireg = ["placeholder"]
-#voi_Idem = ["RIEN"] ==> liste vide
+#voi_Idem = ["RIEN"] ==> listevide
 voi_Ipre = ["donuts","clé_voiture","cigarette","briquet"]
 
 voi_Imar =["parking intérieur","parking extérieur","commissariat accueil","commissariat service"]
 lieu = "voi_I"
-
-
-
 #
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -80,10 +89,18 @@ while est_I == True:
         if choixI == "quitter":
             break
 
-
-
-
-
+        if choixI == "regarder":
+            print("""Vous voyez""", voi_Ireg)
+        if choixI == "prendre":
+            while prendre != "retour":
+                prendre = input("""Que prenez vous ? """)
+                for loop in range(len(voi_Ipre)):
+                    if loop == prendre:
+                        item = item.append(prendre)
+                        voi_Ipre = voi_Ipre.remove(prendre)
+                        print(item , "item" , voi_Ipre, "Voiture")
+                    loop += 1
+            
 
 
 
